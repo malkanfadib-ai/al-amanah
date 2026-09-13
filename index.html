@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yayasan Majlis Ta'lim Al Amanah</title>
+    
+    <!-- Import Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Modern & Kekinian --- */
+        :root {
+            --primary: #059669; /* Emerald Green */
+            --primary-dark: #047857;
+            --accent: #F59E0B; /* Warm Amber */
+            --bg-light: #F8FAFC; 
+            --text-main: #1E293B; 
+            --text-muted: #64748B; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Header & Navigasi */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Pengaturan Logo Baru */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        /* Trik CSS: Membuat logo kotak berbackground hitam menjadi bulat rapi */
+        .logo img {
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo-text span { color: var(--accent); }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero {
+            /* Latar Belakang Awal (Beranda) */
+            background: linear-gradient(135deg, rgba(4, 120, 87, 0.85), rgba(5, 150, 105, 0.75)), url('https://cdn.phototourl.com/free/2026-09-13-afbd5afc-ab1a-4ed5-8bce-bd1e4cf9903b.jpg') no-repeat center 25%/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        .btn-main {
+            text-decoration: none;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Global Section */
+        .section { padding: 80px 5%; }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        /* Tentang Al Amanah (Visi Misi) */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .visi-misi-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+
+        .visi-misi-box h4 {
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .visi-misi-box ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 20px;
+            /* Foto Tentang Al Amanah Baru */
+            background: url('https://cdn.imagetourls.com/uploads/tyImg/qxjimjAD.jpg') no-repeat center center/cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { height: 300px; }
+            nav ul { display: none; }
+        }
+
+        /* Biografi Pendiri */
+        .founder-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .founder-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://cdn.phototourl.com/free/2026-09-13-352086aa-e90f-4161-aa95-e922c664ca1b.jpg') no-repeat center top/cover;
+        }
+
+        .founder-info {
+            flex: 2;
+            padding: 40px;
+            min-width: 300px;
+        }
+
+        .founder-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .founder-info p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Program Majlis Ta'lim */
+        .programs-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 320px;
+            text-align: center;
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card-icon {
+            background: var(--bg-light);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+            color: var(--primary);
+        }
+
+        .card h3 { color: var(--text-main); margin-bottom: 10px; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Dokumentasi / Galeri */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px 15px 10px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        
+        footer p {
+            color: #94A3B8;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <header>
+        <a href="#beranda" class="logo">
+            <img src="https://cdn.phototourl.com/free/2026-09-13-4988ef01-c597-4bdb-88c2-e74b2d829e66.jpg" alt="Logo Al Amanah">
+            <div class="logo-text">Al <span>Amanah</span></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#pendiri">Pendiri</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#galeri">Dokumentasi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Bagian Atas -->
+    <section id="beranda" class="hero">
+        <h1>Yayasan Majlis Ta'lim Al Amanah</h1>
+        <p>Menjadi pusat pembinaan umat yang berlandaskan Al-Qur'an dan As-Sunnah, merajut ukhuwah islamiyah, dan menebar kebaikan untuk segala usia.</p>
+        <a href="#program" class="btn-main">Lihat Jadwal Ta'lim</a>
+    </section>
+
+    <!-- Tentang Al Amanah -->
+    <section id="tentang" class="section">
+        <div class="section-title">
+            <h2>Tentang Al Amanah</h2>
+            <p>Membangun Generasi Rabbani Berlandaskan Iman dan Taqwa</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Sejarah Singkat</h3>
+                <p>Berawal dari kelompok pengajian kecil di lingkungan warga, Yayasan Majlis Ta'lim Al Amanah resmi didirikan sebagai wadah edukasi dan dakwah Islam yang komprehensif. Kami hadir untuk memfasilitasi kebutuhan ruhiyah masyarakat modern agar senantiasa dekat dengan nilai-nilai agama.</p>
+                
+                <div class="visi-misi-box">
+                    <h4>Visi</h4>
+                    <p style="margin-bottom: 0;">Menjadi pelopor majlis ta'lim yang melahirkan generasi muslim berakhlak mulia, cerdas spiritual, dan bermanfaat bagi masyarakat luas.</p>
+                </div>
+                
+                <div class="visi-misi-box">
+                    <h4>Misi</h4>
+                    <ul>
+                        <li>Menyelenggarakan kajian keislaman yang rutin, sistematis, dan mudah dipahami.</li>
+                        <li>Membina pendidikan Al-Qur'an sejak usia dini hingga dewasa.</li>
+                        <li>Mempererat tali silaturahmi (Ukhuwah Islamiyah) melalui kegiatan sosial keagamaan.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Gambar Tentang Al Amanah dimasukkan pada elemen div ini melalui CSS -->
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <!-- Biografi Pendiri -->
+    <section id="pendiri" class="section" style="background-color: #F1F5F9;">
+        <div class="section-title">
+            <h2>Biografi Pendiri</h2>
+            <p>Mengenal lebih dekat perintis Yayasan Al Amanah</p>
+        </div>
+        <div class="founder-container">
+            <div class="founder-img"></div>
+            <div class="founder-info">
+                <!-- Nama Pendiri Diubah -->
+                <h3>Ustadz Ruslan Effendi, S.Pd.</h3>
+                <p>Beliau adalah sosok ulama kharismatik yang mendedikasikan hidupnya untuk dakwah dan pendidikan umat. Yayasan Majlis Ta'lim Al Amanah didirikan pada tahun [Tahun] dari sebuah pengajian kecil di teras masjid.</p>
+                <p>Dengan semangat <i>"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lain"</i>, beliau memprakarsai berdirinya majlis ta'lim ini agar seluruh elemen masyarakat—mulai dari anak-anak, ibu-ibu, hingga bapak-bapak—memiliki wadah untuk terus belajar dan memperbaiki diri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Majlis Ta'lim -->
+    <section id="program" class="section">
+        <div class="section-title">
+            <h2>Program Majlis Ta'lim</h2>
+            <p>Wadah tholabul ilmi untuk seluruh elemen masyarakat</p>
+        </div>
+        <div class="programs-grid">
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3>Taman Pengajian Anak (TPA)</h3>
+                <p>Pendidikan dasar Al-Qur'an, tajwid, doa sehari-hari, dan pembentukan akhlak mulia sejak dini menggunakan metode interaktif yang menyenangkan bagi anak-anak.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧕</div>
+                <h3>Pengajian Ibu-ibu</h3>
+                <p>Kajian rutin mingguan membahas fiqih wanita, sirah nabawiyah, tahsin Al-Qur'an, dan kajian keluarga sakinah untuk mencetak madrasah pertama yang baik bagi anak.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👳‍♂️</div>
+                <h3>Pengajian Bapak-bapak</h3>
+                <p>Forum ta'lim yang mengkaji tauhid, tafsir Al-Qur'an, dan fiqih muamalah guna membekali para ayah sebagai imam dan pemimpin teladan dalam rumah tangga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dokumentasi Kegiatan -->
+    <section id="galeri" class="section" style="background-color: #F1F5F9;">
+        <div class="section-title">
+            <h2>Dokumentasi Kegiatan</h2>
+            <p>Rangkaian peringatan Hari Besar Islam (PHBI) dan kegiatan sosial</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://cdn.phototourl.com/free/2026-09-13-030d3732-7ed7-41ce-acc9-f67221d79b60.jpg" alt="Kegiatan Yayasan Al Amanah">
+                <div class="gallery-caption">Kegiatan Majlis Ta'lim Al Amanah</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pengajian Akbar">
+                <div class="gallery-caption">Pengajian Akbar / Tabligh Akbar</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1560731427-4a6c65330e76?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Santunan Anak Yatim">
+                <div class="gallery-caption">Santunan Anak Yatim (Bulan Muharram)</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1621217751996-857c0f08cb38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Peringatan Isra Mi'raj">
+                <div class="gallery-caption">Peringatan Isra Mi'raj</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h4>Yayasan Majlis Ta'lim Al Amanah</h4>
+        <p>Jl. Raya Utama No. 45, Kota Depok, Jawa Barat | Email: info@alamanah.or.id</p>
+        <p style="margin-top: 20px;">&copy; 2026 Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
