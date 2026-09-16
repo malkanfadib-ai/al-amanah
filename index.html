@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yayasan Majlis Ta'lim Al Amanah</title>
     
-    <!-- Import Google Font: Poppins (Teks Biasa) & Aref Ruqaa (Logo Bermotif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CSS Modern & Kekinian --- */
         :root {
-            --primary: #059669; /* Emerald Green */
+            --primary: #059669; 
             --primary-dark: #047857;
-            --accent: #F59E0B; /* Warm Amber */
+            --accent: #F59E0B; 
             --bg-light: #F8FAFC; 
             --text-main: #1E293B; 
             --text-muted: #64748B; 
@@ -34,7 +32,6 @@
             line-height: 1.7;
         }
 
-        /* --- Header & Navigasi --- */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -46,10 +43,9 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            flex-wrap: wrap; /* Agar responsif di HP */
+            flex-wrap: wrap;
         }
 
-        /* Pengaturan Logo */
         .logo {
             display: flex;
             align-items: center;
@@ -63,13 +59,15 @@
             transform: scale(1.02);
         }
 
+        /* Penanganan jika gambar logo rusak/loading */
         .logo img {
             height: 50px;
             width: 50px;
             object-fit: cover;
             border-radius: 50%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            background-color: white; /* Mencegah transparan error */
+            background-color: #e2e8f0; 
+            color: transparent; /* Sembunyikan alt text jelek jika gambar gagal muat */
         }
 
         .logo-text {
@@ -104,14 +102,13 @@
 
         nav ul li a:hover { color: var(--primary); }
 
-        /* --- Hero Section --- */
         .hero {
-            /* Format Background diperbaiki agar dijamin muncul di semua browser */
-            background-image: linear-gradient(135deg, rgba(4, 120, 87, 0.85), rgba(5, 150, 105, 0.75)), url('https://cdn.phototourl.com/free/2026-09-13-afbd5afc-ab1a-4ed5-8bce-bd1e4cf9903b.jpg');
+            /* PATH LOKAL: Ganti URL eksternal dengan URL file di folder Anda */
+            background-image: linear-gradient(135deg, rgba(4, 120, 87, 0.85), rgba(5, 150, 105, 0.75)), url('images/bg-hero.jpg');
             background-size: cover;
-            background-position: center 25%; /* Fokus ke wajah */
+            background-position: center 25%;
             background-repeat: no-repeat;
-            
+            background-color: var(--primary-dark); /* Fallback warna jika gambar gagal */
             height: 80vh;
             min-height: 500px;
             display: flex;
@@ -156,7 +153,6 @@
             box-shadow: 0 15px 25px rgba(245, 158, 11, 0.4);
         }
 
-        /* --- Global Section --- */
         .section { padding: 80px 5%; }
         
         .section-title {
@@ -174,7 +170,6 @@
             color: var(--text-muted);
         }
 
-        /* --- Tentang Al Amanah --- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -221,15 +216,13 @@
             min-height: 450px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            
-            /* Penulisan background yang dijamin muncul */
-            background-image: url('https://cdn.imagetourls.com/uploads/tyImg/qxjimjAD.jpg');
+            background-color: #e2e8f0; /* Fallback warna */
+            background-image: url('images/tentang.jpg'); /* PATH LOKAL */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* --- Biografi Pendiri --- */
         .founder-container {
             display: flex;
             flex-wrap: wrap;
@@ -246,9 +239,8 @@
             flex: 1;
             min-width: 300px;
             min-height: 450px;
-            
-            /* Background pendiri disempurnakan */
-            background-image: url('https://cdn.phototourl.com/free/2026-09-13-352086aa-e90f-4161-aa95-e922c664ca1b.jpg');
+            background-color: #e2e8f0; /* Fallback warna */
+            background-image: url('images/pendiri.jpg'); /* PATH LOKAL */
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
@@ -272,7 +264,6 @@
             text-align: justify;
         }
 
-        /* --- Program Majlis Ta'lim --- */
         .programs-grid {
             display: flex;
             justify-content: center;
@@ -307,7 +298,6 @@
         .card h3 { color: var(--text-main); margin-bottom: 10px; }
         .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* --- Dokumentasi / Galeri --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -322,7 +312,7 @@
             overflow: hidden;
             height: 250px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background-color: #e2e8f0; /* Efek loading */
+            background-color: #cbd5e1; /* Warna abu-abu jika gambar gagal muat */
         }
 
         .gallery-item img {
@@ -330,6 +320,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            color: transparent; /* Menyembunyikan icon error browser bawaan */
         }
 
         .gallery-item:hover img { transform: scale(1.1); }
@@ -345,7 +336,6 @@
             font-weight: 500;
         }
 
-        /* --- Footer --- */
         footer {
             background-color: var(--text-main);
             color: white;
@@ -385,7 +375,6 @@
             fill: currentColor;
         }
 
-        /* --- Responsif HP (Mobile Friendly) --- */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -396,25 +385,18 @@
                 justify-content: center;
                 gap: 15px;
             }
-            .about-grid { 
-                grid-template-columns: 1fr; 
-            }
-            .about-image { 
-                min-height: 300px; 
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { min-height: 300px; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
     <header>
         <a href="#beranda" class="logo">
-            <!-- Logo Kotak diubah jadi bulat oleh CSS -->
-            <img src="https://cdn.phototourl.com/free/2026-09-13-4988ef01-c597-4bdb-88c2-e74b2d829e66.jpg" alt="Logo Al Amanah">
+            <!-- PATH LOKAL LOGO -->
+            <img src="images/logo.jpg" alt="Logo Al Amanah">
             <div class="logo-text">Al <span>Amanah</span></div>
         </a>
         <nav>
@@ -428,14 +410,12 @@
         </nav>
     </header>
 
-    <!-- Hero Bagian Atas -->
     <section id="beranda" class="hero">
         <h1>Yayasan Majlis Ta'lim Al Amanah</h1>
         <p>Menjadi pusat pembinaan umat yang berlandaskan Al-Qur'an dan As-Sunnah, merajut ukhuwah islamiyah, dan menebar kebaikan untuk segala usia.</p>
         <a href="#program" class="btn-main">Lihat Jadwal Ta'lim</a>
     </section>
 
-    <!-- Tentang Al Amanah -->
     <section id="tentang" class="section">
         <div class="section-title">
             <h2>Tentang Al Amanah</h2>
@@ -460,19 +440,18 @@
                     </ul>
                 </div>
             </div>
-            <!-- Gambar Tentang (Background CSS) -->
+            <!-- Background CSS Local Path diatur di atas -->
             <div class="about-image"></div>
         </div>
     </section>
 
-    <!-- Biografi Pendiri -->
     <section id="pendiri" class="section" style="background-color: #F1F5F9;">
         <div class="section-title">
             <h2>Biografi Pendiri</h2>
             <p>Mengenal lebih dekat perintis Yayasan Al Amanah</p>
         </div>
         <div class="founder-container">
-            <!-- Gambar Pendiri (Background CSS) -->
+            <!-- Background CSS Local Path diatur di atas -->
             <div class="founder-img"></div>
             <div class="founder-info">
                 <h3>Ustadz Ruslan Effendi, S.Pd.</h3>
@@ -482,7 +461,6 @@
         </div>
     </section>
 
-    <!-- Program Majlis Ta'lim -->
     <section id="program" class="section">
         <div class="section-title">
             <h2>Program Majlis Ta'lim</h2>
@@ -507,39 +485,36 @@
         </div>
     </section>
 
-    <!-- Dokumentasi Kegiatan -->
     <section id="galeri" class="section" style="background-color: #F1F5F9;">
         <div class="section-title">
             <h2>Dokumentasi Kegiatan</h2>
             <p>Rangkaian peringatan Hari Besar Islam (PHBI) dan kegiatan sosial</p>
         </div>
         <div class="gallery-grid">
-            <!-- Gambar menggunakan Tag IMG agar mudah didownload/dilihat -->
+            <!-- PATH LOKAL GALERI -->
             <div class="gallery-item">
-                <img src="https://cdn.phototourl.com/free/2026-09-13-030d3732-7ed7-41ce-acc9-f67221d79b60.jpg" alt="Kegiatan Majlis Ta'lim" loading="lazy">
+                <img src="images/galeri-1.jpg" alt="Kegiatan Majlis Ta'lim" loading="lazy">
                 <div class="gallery-caption">Kegiatan Majlis Ta'lim Al Amanah</div>
             </div>
             <div class="gallery-item">
-                <img src="https://cdn.phototourl.com/free/2026-09-15-414e2533-0c8a-4f09-9e80-fce8baf2c3bd.jpg" alt="Pengajian Ibu-ibu" loading="lazy">
+                <img src="images/galeri-2.jpg" alt="Pengajian Ibu-ibu" loading="lazy">
                 <div class="gallery-caption">Pengajian Bulanan Ibu-ibu</div>
             </div>
             <div class="gallery-item">
-                <img src="https://cdn.phototourl.com/free/2026-09-16-44218cbb-8624-466f-9978-d0ba1475e7c2.jpg" alt="Pengajian Bapak-bapak" loading="lazy">
+                <img src="images/galeri-3.jpg" alt="Pengajian Bapak-bapak" loading="lazy">
                 <div class="gallery-caption">Pengajian Bapak-bapak</div>
             </div>
             <div class="gallery-item">
-                <img src="https://cdn.phototourl.com/free/2026-09-16-b16d7c59-9b58-48e9-8370-205ead074274.jpg" alt="Peringatan Maulid" loading="lazy">
+                <img src="images/galeri-4.jpg" alt="Peringatan Maulid" loading="lazy">
                 <div class="gallery-caption">Peringatan Maulid Nabi SAW</div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <h4>Yayasan Majlis Ta'lim Al Amanah</h4>
         <p>Jl. Raya Utama No. 45, Kota Depok, Jawa Barat | Email: info@alamanah.or.id</p>
         
-        <!-- LINK INSTAGRAM DENGAN LOGO SVG DI BAWAH -->
         <a href="https://www.instagram.com/al_amanah.majlistalim?stkn=MThqcmJ1cTlyc2pibA==" target="_blank" class="footer-ig">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
