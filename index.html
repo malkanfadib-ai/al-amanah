@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yayasan Majlis Ta'lim Al Amanah</title>
     
-    <!-- Import Google Font: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Import Google Font: Poppins (Untuk Teks Biasa) & Aref Ruqaa (Untuk Logo Bermotif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- CSS Modern & Kekinian --- */
@@ -52,8 +54,6 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 700;
             color: var(--primary-dark);
             transition: transform 0.3s ease;
         }
@@ -71,12 +71,26 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .logo-text span { color: var(--accent); }
+        /* FONT LOGO BERMOTIF (Aref Ruqaa) */
+        .logo-text {
+            font-family: 'Aref Ruqaa', serif; /* Font bermotif kaligrafi */
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo-text span { 
+            font-family: inherit; 
+            color: var(--accent); 
+        }
 
         nav ul {
             list-style: none;
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         nav ul li a {
@@ -91,7 +105,6 @@
 
         /* Hero Section */
         .hero {
-            /* Latar Belakang Awal (Beranda) */
             background: linear-gradient(135deg, rgba(4, 120, 87, 0.85), rgba(5, 150, 105, 0.75)), url('https://cdn.phototourl.com/free/2026-09-13-afbd5afc-ab1a-4ed5-8bce-bd1e4cf9903b.jpg') no-repeat center 25%/cover;
             height: 80vh;
             display: flex;
@@ -200,7 +213,6 @@
             width: 100%;
             height: 450px;
             border-radius: 20px;
-            /* Foto Tentang Al Amanah Baru */
             background: url('https://cdn.imagetourls.com/uploads/tyImg/qxjimjAD.jpg') no-repeat center center/cover;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -299,6 +311,7 @@
             overflow: hidden;
             height: 250px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #e2e8f0;
         }
 
         .gallery-item img {
@@ -335,6 +348,31 @@
             color: #94A3B8;
             margin-top: 10px;
             font-size: 0.9rem;
+        }
+        
+        /* Gaya Tombol Instagram di Footer */
+        .footer-ig {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            color: #E1306C; /* Warna khas Instagram */
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .footer-ig:hover {
+            color: white;
+            transform: scale(1.05); /* Sedikit membesar saat disentuh/diarahkan kursor */
+        }
+
+        .footer-ig svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
     </style>
 </head>
@@ -389,7 +427,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Gambar Tentang Al Amanah dimasukkan pada elemen div ini melalui CSS -->
+            <!-- Gambar Tentang Al Amanah -->
             <div class="about-image"></div>
         </div>
     </section>
@@ -403,7 +441,6 @@
         <div class="founder-container">
             <div class="founder-img"></div>
             <div class="founder-info">
-                <!-- Nama Pendiri Diubah -->
                 <h3>Ustadz Ruslan Effendi, S.Pd.</h3>
                 <p>Beliau adalah sosok ulama kharismatik yang mendedikasikan hidupnya untuk dakwah dan pendidikan umat. Yayasan Majlis Ta'lim Al Amanah didirikan pada tahun [Tahun] dari sebuah pengajian kecil di teras masjid.</p>
                 <p>Dengan semangat <i>"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lain"</i>, beliau memprakarsai berdirinya majlis ta'lim ini agar seluruh elemen masyarakat—mulai dari anak-anak, ibu-ibu, hingga bapak-bapak—memiliki wadah untuk terus belajar dan memperbaiki diri.</p>
@@ -448,16 +485,16 @@
                 <div class="gallery-caption">Kegiatan Majlis Ta'lim Al Amanah</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1542382156909-9ae37b3f56fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pengajian Akbar">
-                <div class="gallery-caption">Pengajian Akbar / Tabligh Akbar</div>
+                <img src="https://cdn.phototourl.com/free/2026-09-15-414e2533-0c8a-4f09-9e80-fce8baf2c3bd.jpg" alt="Pengajian Bulanan Ibu-ibu">
+                <div class="gallery-caption">Pengajian Bulanan Ibu-ibu</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1560731427-4a6c65330e76?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Santunan Anak Yatim">
-                <div class="gallery-caption">Santunan Anak Yatim (Bulan Muharram)</div>
+                <img src="https://cdn.phototourl.com/free/2026-09-16-44218cbb-8624-466f-9978-d0ba1475e7c2.jpg" alt="Pengajian Bapak-bapak">
+                <div class="gallery-caption">Pengajian Bapak-bapak</div>
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1621217751996-857c0f08cb38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Peringatan Isra Mi'raj">
-                <div class="gallery-caption">Peringatan Isra Mi'raj</div>
+                <img src="https://cdn.phototourl.com/free/2026-09-16-b16d7c59-9b58-48e9-8370-205ead074274.jpg" alt="Peringatan Maulid">
+                <div class="gallery-caption">Peringatan Maulid Nabi SAW</div>
             </div>
         </div>
     </section>
@@ -466,7 +503,17 @@
     <footer>
         <h4>Yayasan Majlis Ta'lim Al Amanah</h4>
         <p>Jl. Raya Utama No. 45, Kota Depok, Jawa Barat | Email: info@alamanah.or.id</p>
-        <p style="margin-top: 20px;">&copy; 2026 Hak Cipta Dilindungi.</p>
+        
+        <!-- LINK INSTAGRAM DENGAN LOGO SVG -->
+        <a href="https://www.instagram.com/al_amanah.majlistalim?stkn=MThqcmJ1cTlyc2pibA==" target="_blank" class="footer-ig">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!-- Path Logo Instagram -->
+                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+            </svg>
+            @al_amanah.majlistalim
+        </a>
+        
+        <p style="margin-top: 30px;">&copy; 2026 Hak Cipta Dilindungi.</p>
     </footer>
 
 </body>
